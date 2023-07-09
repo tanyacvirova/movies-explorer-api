@@ -1,1 +1,7 @@
-# movies-explorer-api
+# Бэкенд для дипломного проекта в Яндекс Практикуме
+
+API для сервиса, в котором можно найти фильмы по запросу и сохранить в личном кабинете. Необходим для аутентификации пользователей и сохранения фильмов.
+
+Ссылка на репозиторий: https://github.com/tanyacvirova/movies-explorer-api
+
+Домен: https://api.movies-explorer.tt.nomoredomains.work
