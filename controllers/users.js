@@ -82,6 +82,8 @@ const updateUserInfo = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError('Переданы некорректные данные.'));
+      } else if (err.code === 11000) {
+        next(new ConflictError('Пользователь с таким email уже существует.'));
       } else {
         next(err);
       }

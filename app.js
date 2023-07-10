@@ -6,17 +6,19 @@ const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/index');
 const errorHandler = require('./middlewares/errorHandler');
-const { PORT, DB_ADDRESS } = require('./config');
+
+const { NODE_ENV, DB_ADDRESS } = process.env;
+const { PORT, DB_ADDRESS_LOCAL } = require('./config');
 const cors = require('./middlewares/cors');
 const limiter = require('./middlewares/limiter');
 
-mongoose.connect(DB_ADDRESS);
+mongoose.connect(NODE_ENV === 'production' ? DB_ADDRESS : DB_ADDRESS_LOCAL);
 const app = express();
 
 app.use(express.json());
+app.use(requestLogger);
 app.use(limiter);
 app.use(helmet());
-app.use(requestLogger);
 app.use(cors);
 app.use(routes);
 app.use(errorLogger);
