@@ -1,6 +1,6 @@
 const allowedCors = [
-  // 'https://mestoproject.tanyacvirova.nomoreparties.sbs',
-  // 'http://mestoproject.tanyacvirova.nomoreparties.sbs',
+  'https://movies-explorer.nomoreparties.co/',
+  'http://movies-explorer.nomoreparties.co/',
   'http://localhost:3000',
   'https://localhost:3000',
 ];
